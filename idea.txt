@@ -1,0 +1,75 @@
+¿CÓMO VIAJAMOS?
+
+¿En qué viajé?
+TREN
+SUBTE
+COLECTIVO
+
+¿En qué línea?
+LINEA --------> SENTIDO O RAMAL (Por ejemplo: Línea B -------> Sentido a Alem; Línea 34 -------> Ramal A: hasta santa fe)
+
+¿En qué franja horaria aproximádamente?
+FECHA		-		HORA DESDE		-		HORA HASTA (Default: Fecha: fecha actual; Hora desde: hora actual redondeada - 30 minutos; hora hasta: hora actual redondeada)
+
+¿Cómo viajé?
+HORRIBLE
+MAL
+MAS O MENOS
+BIEN
+MUY BIEN
+
+¿Por qué motivo?
+OTRO	 			  ---->	(COLECTIVO)
+MALA FRECUENCIA 	  ----> (TODOS)
+SERVICIO INTERRUMPIDO ---->	(TODOS)
+EXPLOTADO DE GENTE!	  ---->	(TODOS)
+SERVICIO DEMORADO	  ---->	(TODOS)
+MUCHO TRAFICO	 	  ---->	(COLECTIVO)
+MANIFESTACION		  ---->	(COLECTIVO)
+CALLES CORTADAS		  ---->	(COLECTIVO)
+
+Comentarios:
+Texto libre
+
+----------------------------------------------------------------------************************************----------------------------------------------------------------------------------
+
+User:
+id
+
+TransportType (subte, tren, colectivo):
+id
+description
+
+Transport:
+id,
+description,
+transportTypeId
+
+TransportBranch (ramal):
+id
+description,
+TransportId
+
+TransportBranchOrientation (a J.M. de Rosas):
+id
+description,
+TransportBranchId
+
+TravelFeeling:
+id,
+description
+
+TravelFeelingReason:
+id,
+description,
+transportTypeId,
+travelFeelingId
+
+TravelReview:
+userId, (ip o que se yo)
+date,
+timeFrom,
+timeUntil,
+comments,
+travelFeelingId,
+travelFeelingReasonId[]
