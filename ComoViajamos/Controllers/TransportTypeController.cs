@@ -6,9 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ComoViajamos.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ValuesController : ControllerBase
+    public class TransportTypeController : BaseController
     {
         // GET api/values
         [HttpGet]
