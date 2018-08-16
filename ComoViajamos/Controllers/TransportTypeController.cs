@@ -3,41 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Model;
+using Services.Abstractions;
+using Services.Implementations;
 
 namespace ComoViajamos.Controllers
 {
     public class TransportTypeController : BaseController
     {
-        // GET api/values
+        private ITransportTypeService _transportTypeService;
+
+        public TransportTypeController()
+        {
+            this._transportTypeService = new TransportTypeService();
+        }
+
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            IList<TransportType> transportTypes = this._transportTypeService.GetAllTransportTypes();
+
+            return Ok(transportTypes);
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet]
+        public ActionResult Get(int id)
         {
-            return "value";
-        }
+            TransportType transportType = this._transportTypeService.GetTransportTypeById(id);
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return Ok(transportType);
         }
     }
 }

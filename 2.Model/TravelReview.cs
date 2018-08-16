@@ -10,9 +10,8 @@ namespace Model
         public DateTime Date { get; set; }
         public DateTime TimeFrom { get; set; }
         public DateTime TimeUntil { get; set; }
-        public int TravelFeelingId { get; set; }
-        public TravelFeeling TravelFeeling { get; set; }
-        public IList<TravelFeelingReason> TravelFeelingReasons { get; set; }
+        public ReviewTravelFeeling TravelFeeling { get; set; }
+        public ReviewTransport ReviewTransport { get; set; }
         public String Comments { get; set; }
     }
 }

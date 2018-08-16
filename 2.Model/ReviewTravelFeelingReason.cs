@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Model
 {
-    public class TravelFeeling
+    public class ReviewTravelFeelingReason
     {
         public int Id { get; set; }
         public String Description { get; set; }

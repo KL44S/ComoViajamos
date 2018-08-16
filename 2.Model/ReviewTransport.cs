@@ -4,9 +4,10 @@ using System.Text;
 
 namespace Model
 {
-    public class TravelFeeling
+    public class ReviewTransport
     {
         public int Id { get; set; }
         public String Description { get; set; }
+        public ReviewTransportBranch ReviewTransportBranch { get; set; } 
     }
 }

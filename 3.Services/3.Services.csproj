@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>_3.Services</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\2.Model\2.Model.csproj" />
+    <ProjectReference Include="..\4.DataAccess\4.DataAccess.csproj" />
+    <ProjectReference Include="..\5.Exceptions\5.Exceptions.csproj" />
+  </ItemGroup>
+
+</Project>
