@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ComoViajamos.Mappers.Implementations;
 using ComoViajamos.ViewModels;
 using Microsoft.AspNetCore.Http;
@@ -39,12 +36,12 @@ namespace ComoViajamos.Controllers
                 }
                 else
                 {
-                    return UnprocessableEntity(errorMessage);
+                    return StatusCode(StatusCodes.Status422UnprocessableEntity, errorMessage);
                 }
             }
             else
             {
-                return UnprocessableEntity(ModelState);
+                return StatusCode(StatusCodes.Status422UnprocessableEntity, ModelState);
             }
             
         }
