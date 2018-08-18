@@ -27,9 +27,9 @@ namespace ComoViajamos.Controllers
         }
 
         [HttpGet]
-        public ActionResult Get(int id)
+        public ActionResult Get(int transportTypeId)
         {
-            TransportType transportType = this._transportTypeService.GetTransportTypeById(id);
+            TransportType transportType = this._transportTypeService.GetTransportTypeById(transportTypeId);
 
             return Ok(transportType);
         }

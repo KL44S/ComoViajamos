@@ -12,35 +12,35 @@ namespace ComoViajamos.Controllers
 {
     public class TransportBranchController : BaseController
     {
-        private ITransportBranchService _transportBranchService;
+        private ITransportService _transportService;
 
         public TransportBranchController()
         {
-            this._transportBranchService = new TransportBranchService();
+            this._transportService = new TransportService();
         }
 
         [HttpGet]
-        public ActionResult Get(int? id, int? transportId)
+        public ActionResult Get(int? transportId, int? branchId)
         {
-            if (id.HasValue)
+            if (transportId.HasValue)
             {
-                TransportBranch transportBranch = this._transportBranchService.GetTransportBranchById(id.Value);
-
-                return Ok(transportBranch);
-            }
-            else
-            {
-                if (transportId.HasValue)
+                if (branchId.HasValue)
                 {
-                    IList<TransportBranch> transportBranches;
-                    transportBranches = this._transportBranchService.GetTransportBranchByTransportId(transportId.Value);
+                    TransportBranch transportBranch = this._transportService.GetTransportBranchById(transportId.Value, branchId.Value);
 
-                    return Ok(transportBranches);
+                    return Ok(transportBranch);
                 }
                 else
                 {
-                    return BadRequest();
+                    IList<TransportBranch> transportBranches;
+                    transportBranches = this._transportService.GetTransportBranchByTransportId(transportId.Value);
+
+                    return Ok(transportBranches);
                 }
+            }
+            else
+            {
+                return BadRequest();
             }
         }
     }

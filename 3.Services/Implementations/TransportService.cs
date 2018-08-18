@@ -13,10 +13,12 @@ namespace Services.Implementations
     public class TransportService : ITransportService
     {
         private IGetRepository<Transport> _repository;
+        private ITransportBranchService _branchService;
 
         public TransportService()
         {
             this._repository = RepositoryFactory.GetRepository<Transport>();
+            this._branchService = new TransportBranchService();
         }
 
         public IList<Transport> GetAllTransports()
@@ -26,9 +28,24 @@ namespace Services.Implementations
             return transports;
         }
 
+        public TransportBranch GetTransportBranchById(int transportId, int branchId)
+        {
+            return this._branchService.GetTransportBranchById(transportId, branchId);
+        }
+
+        public IList<TransportBranch> GetTransportBranchByTransportId(int transportId)
+        {
+            return this._branchService.GetTransportBranchByTransportId(transportId);
+        }
+
+        public TransportBranchOrientation GetTransportBranchOrientationById(int transportId, int branchId, int orientationId)
+        {
+            return this._branchService.GetTransportBranchOrientationById(transportId, branchId, orientationId);
+        }
+
         public Transport GetTransportById(int id)
         {
-            IList<Transport> transports = this._repository.GetAllByConditions(x => x.Id == id);
+            IList<Transport> transports = this._repository.GetAllByConditions(x => x.TransportId == id);
 
             if (transports.Count.Equals(0))
             {

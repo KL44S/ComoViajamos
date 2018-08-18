@@ -10,5 +10,10 @@ namespace Services.Abstractions
         Transport GetTransportById(int id);
         IList<Transport> GetTransportByTransportTypeId(int transportTypeId);
         IList<Transport> GetAllTransports();
+
+        TransportBranch GetTransportBranchById(int transportId, int branchId);
+        IList<TransportBranch> GetTransportBranchByTransportId(int transportId);
+
+        TransportBranchOrientation GetTransportBranchOrientationById(int transportId, int branchId, int orientationId);
     }
 }

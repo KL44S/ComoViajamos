@@ -7,7 +7,8 @@ namespace Services.Abstractions
 {
     public interface ITransportBranchService
     {
-        TransportBranch GetTransportBranchById(int id);
+        TransportBranch GetTransportBranchById(int transportId, int branchId);
         IList<TransportBranch> GetTransportBranchByTransportId(int transportId);
+        TransportBranchOrientation GetTransportBranchOrientationById(int transportId, int branchId, int orientationId);
     }
 }

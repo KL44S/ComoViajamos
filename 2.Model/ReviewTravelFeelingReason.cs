@@ -6,7 +6,7 @@ namespace Model
 {
     public class ReviewTravelFeelingReason
     {
-        public int Id { get; set; }
+        public int ReasonId { get; set; }
         public String Description { get; set; }
     }
 }

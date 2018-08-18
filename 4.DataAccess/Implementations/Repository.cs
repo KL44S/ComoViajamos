@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
+using Utils;
 
 namespace DataAccess.Implementations
 {
@@ -39,6 +40,21 @@ namespace DataAccess.Implementations
         public void DeleteByConditions(Expression<Func<T, bool>> expression)
         {
             this._repository.DeleteByConditions(expression);
+        }
+
+        public IList<T> GetAllByConditionsAndSort<TKey>(Expression<Func<T, bool>> expression, Expression<Func<T, TKey>> sort, Constants.SortTypes sortType)
+        {
+            return this._repository.GetAllByConditionsAndSort<TKey>(expression, sort, sortType);
+        }
+
+        public T GetFirstByConditions(Expression<Func<T, bool>> expression)
+        {
+            return this._repository.GetFirstByConditions(expression);
+        }
+
+        public T GetFirstByConditionsAndSort<TKey>(Expression<Func<T, bool>> expression, Expression<Func<T, TKey>> sort, Constants.SortTypes sortType)
+        {
+            return this._repository.GetFirstByConditionsAndSort<TKey>(expression, sort, sortType);
         }
     }
 }

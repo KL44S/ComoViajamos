@@ -13,7 +13,7 @@ namespace ComoViajamos.Mappers.Implementations
         private ReviewTransportBranchOrientation GetReviewTransportBranchOrientation(TravelReviewViewModel viewModel)
         {
             ReviewTransportBranchOrientation orientation = new ReviewTransportBranchOrientation();
-            orientation.Id = viewModel.TransportBranchOrientationId;
+            orientation.OrientationId = viewModel.TransportBranchOrientationId;
 
             return orientation;
         }
@@ -21,7 +21,7 @@ namespace ComoViajamos.Mappers.Implementations
         private ReviewTransportBranch GetReviewTransportBranch(TravelReviewViewModel viewModel)
         {
             ReviewTransportBranch transportBranch = new ReviewTransportBranch();
-            transportBranch.Id = viewModel.TransportBranchId;
+            transportBranch.BranchId = viewModel.TransportBranchId;
             transportBranch.ReviewTransportBranchOrientation = this.GetReviewTransportBranchOrientation(viewModel);
 
             return transportBranch;
@@ -30,7 +30,7 @@ namespace ComoViajamos.Mappers.Implementations
         private ReviewTransport GetReviewTransport(TravelReviewViewModel viewModel)
         {
             ReviewTransport transport = new ReviewTransport();
-            transport.Id = viewModel.TransportId;
+            transport.TransportId = viewModel.TransportId;
             transport.ReviewTransportBranch = this.GetReviewTransportBranch(viewModel);
 
             return transport;
@@ -43,7 +43,7 @@ namespace ComoViajamos.Mappers.Implementations
             foreach (int id in viewModel.TravelFeelingReasonIds)
             {
                 ReviewTravelFeelingReason reason = new ReviewTravelFeelingReason();
-                reason.Id = id;
+                reason.ReasonId = id;
 
                 reasons.Add(reason);
             }
@@ -54,7 +54,7 @@ namespace ComoViajamos.Mappers.Implementations
         private ReviewTravelFeeling GetReviewTravelFeeling(TravelReviewViewModel viewModel)
         {
             ReviewTravelFeeling feeling = new ReviewTravelFeeling();
-            feeling.Id = viewModel.TravelFeelingId;
+            feeling.FeelingId = viewModel.TravelFeelingId;
             feeling.ReviewTravelFeelingReasons = this.GetReviewTravelFeelingReasons(viewModel);
 
             return feeling;

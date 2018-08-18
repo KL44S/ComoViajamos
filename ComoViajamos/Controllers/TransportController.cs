@@ -20,11 +20,11 @@ namespace ComoViajamos.Controllers
         }
 
         [HttpGet]
-        public ActionResult Get(int? id, int? transportTypeId)
+        public ActionResult Get(int? transportId, int? transportTypeId)
         {
-            if (id.HasValue)
+            if (transportId.HasValue)
             {
-                Transport transport = this._transportService.GetTransportById(id.Value);
+                Transport transport = this._transportService.GetTransportById(transportId.Value);
 
                 return Ok(transport);
             }

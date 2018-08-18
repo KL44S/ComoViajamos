@@ -28,7 +28,7 @@ namespace Services.Implementations
 
         public TransportType GetTransportTypeById(int id)
         {
-            IList<TransportType> transportTypes = this._repository.GetAllByConditions(x => x.Id == id);
+            IList<TransportType> transportTypes = this._repository.GetAllByConditions(x => x.TransportTypeId == id);
 
             if (transportTypes.Count.Equals(0))
             {

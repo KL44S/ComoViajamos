@@ -6,7 +6,7 @@ namespace Model
 {
     public class ReviewTransport
     {
-        public int Id { get; set; }
+        public int TransportId { get; set; }
         public String Description { get; set; }
         public ReviewTransportBranch ReviewTransportBranch { get; set; } 
     }

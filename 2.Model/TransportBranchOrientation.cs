@@ -6,7 +6,7 @@ namespace Model
 {
     public class TransportBranchOrientation
     {
-        public int Id { get; set; }
+        public int OrientationId { get; set; }
         public String Description { get; set; }
     }
 }

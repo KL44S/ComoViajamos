@@ -6,6 +6,7 @@ namespace Model
 {
     public class TravelReview
     {
+        public int ReviewId { get; set; }
         public String UserId { get; set; }
         public DateTime Date { get; set; }
         public DateTime TimeFrom { get; set; }

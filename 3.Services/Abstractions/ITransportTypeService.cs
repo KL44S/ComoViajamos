@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Services.Abstractions
 {
-    public interface ITransportTypeService
+    public interface ITransportTypeService 
     {
         TransportType GetTransportTypeById(int id);
         IList<TransportType> GetAllTransportTypes();
