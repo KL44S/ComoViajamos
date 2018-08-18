@@ -1,9 +1,9 @@
 ¿CÓMO VIAJAMOS?
 
 ¿En qué viajé?
-TREN
-SUBTE
-COLECTIVO
+1.SUBTE
+2.COLECTIVO
+3.TREN
 
 ¿En qué línea?
 LINEA --------> SENTIDO O RAMAL (Por ejemplo: Línea B -------> Sentido a Alem; Línea 34 -------> Ramal A: hasta santa fe)
@@ -12,21 +12,25 @@ LINEA --------> SENTIDO O RAMAL (Por ejemplo: Línea B -------> Sentido a Alem; 
 FECHA		-		HORA DESDE		-		HORA HASTA (Default: Fecha: fecha actual; Hora desde: hora actual redondeada - 30 minutos; hora hasta: hora actual redondeada)
 
 ¿Cómo viajé?
-HORRIBLE
-MAL
-MAS O MENOS
-BIEN
-MUY BIEN
+1.HORRIBLE
+2.MAL
+3.MAS O MENOS
+4.BIEN
+5.MUY BIEN
 
 ¿Por qué motivo?
-OTRO	 			  ---->	(COLECTIVO)
-MALA FRECUENCIA 	  ----> (TODOS)
-SERVICIO INTERRUMPIDO ---->	(TODOS)
-EXPLOTADO DE GENTE!	  ---->	(TODOS)
-SERVICIO DEMORADO	  ---->	(TODOS)
-MUCHO TRAFICO	 	  ---->	(COLECTIVO)
-MANIFESTACION		  ---->	(COLECTIVO)
-CALLES CORTADAS		  ---->	(COLECTIVO)
+OTRO	 			 	 ---->	(COLECTIVO)
+1.MALA FRECUENCIA 	  		----> (TODOS)
+
+2.SERVICIO INTERRUMPIDO 	---->	(TODOS)
+3.EXPLOTADO DE GENTE!	  ---->	(TODOS)
+4.SERVICIO DEMORADO	 	 ---->	(TODOS)
+
+5.MUCHO TRAFICO	 	  	---->	(COLECTIVO)
+6.MANIFESTACION		  	---->	(COLECTIVO)
+7.CALLES CORTADAS		  ---->	(COLECTIVO)
+
+8.SERVICIO LIMITADO	 	 ---->	(TODOS)
 
 Comentarios:
 Texto libre
