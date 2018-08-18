@@ -39,6 +39,8 @@ namespace _1.API
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSecurityMiddleware();
+
             app.UseMvc();
         }
     }
