@@ -20,14 +20,19 @@ namespace ComoViajamos
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                            .AddViewLocalization()
-                            .AddDataAnnotationsLocalization();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddMvc(config =>
             {
                 config.Filters.Add(new NotCatchedExceptionFilterAttribute());
             });
+
+            services.AddCors(o => o.AddPolicy("EnableAll", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +49,6 @@ namespace ComoViajamos
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

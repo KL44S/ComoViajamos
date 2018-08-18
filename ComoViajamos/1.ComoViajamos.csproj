@@ -5,7 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="APIConstants\" />
+    <Compile Remove="APIConstants\**" />
+    <Content Remove="APIConstants\**" />
+    <EmbeddedResource Remove="APIConstants\**" />
+    <None Remove="APIConstants\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
