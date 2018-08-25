@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Model;
 using Services.Abstractions;
@@ -18,20 +19,22 @@ namespace ComoViajamos.Controllers
             this._transportTypeService = new TransportTypeService();
         }
 
+        [EnableCors("EnableAll")]
         [HttpGet]
-        public ActionResult Get()
+        public ActionResult Get(int? transportTypeId)
         {
-            IList<TransportType> transportTypes = this._transportTypeService.GetAllTransportTypes();
+            if (transportTypeId.HasValue)
+            {
+                TransportType transportType = this._transportTypeService.GetTransportTypeById(transportTypeId.Value);
 
-            return Ok(transportTypes);
-        }
+                return Ok(transportType);
+            }
+            else
+            {
+                IList<TransportType> transportTypes = this._transportTypeService.GetAllTransportTypes();
 
-        [HttpGet]
-        public ActionResult Get(int transportTypeId)
-        {
-            TransportType transportType = this._transportTypeService.GetTransportTypeById(transportTypeId);
-
-            return Ok(transportType);
+                return Ok(transportTypes);
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using ComoViajamos.Mappers.Implementations;
 using ComoViajamos.ViewModels;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model;
@@ -20,6 +21,7 @@ namespace ComoViajamos.Controllers
             this._travelReviewService = new TravelReviewService();
         }
 
+        [EnableCors("EnableAll")]
         [HttpPost]
         public ActionResult Post(TravelReviewViewModel travelReviewViewModel)
         {

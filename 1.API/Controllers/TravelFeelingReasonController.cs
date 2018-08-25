@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Model;
 using Services.Abstractions;
@@ -15,6 +16,7 @@ namespace ComoViajamos.Controllers
             this._travelFeelingReasonService = new TravelFeelingReasonService();
         }
 
+        [EnableCors("EnableAll")]
         [HttpGet]
         public ActionResult Get(int travelFeelingId, int transportTypeId)
         {
