@@ -27,7 +27,8 @@ namespace ComoViajamos
             {
                 builder.AllowAnyOrigin()
                        .AllowAnyMethod()
-                       .AllowAnyHeader();
+                       .AllowAnyHeader()
+                       .AllowCredentials();
             }));
         }
 
@@ -38,8 +39,6 @@ namespace ComoViajamos
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseSecurityMiddleware();
 
             app.UseMvc();
         }
