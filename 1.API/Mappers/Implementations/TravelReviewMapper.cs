@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Utils;
 
 namespace ComoViajamos.Mappers.Implementations
 {
@@ -62,11 +63,12 @@ namespace ComoViajamos.Mappers.Implementations
 
         private TravelReview GetTravelReview(TravelReviewViewModel viewModel)
         {
+            DateTime datetimeFrom = DatetimeUtils.GetDateTime(viewModel.DatetimeFrom);
+            DateTime datetimeUntil = DatetimeUtils.GetDateTime(viewModel.DatetimeUntil);
+
             TravelReview travelReview = new TravelReview();
-            travelReview.Comments = viewModel.Comments;
-            travelReview.Date = viewModel.Date;
-            travelReview.TimeFrom = viewModel.TimeFrom;
-            travelReview.TimeUntil = viewModel.TimeUntil;
+            travelReview.DatetimeFrom = datetimeFrom;
+            travelReview.DatetimeUntil = datetimeUntil;
             travelReview.TravelFeeling = this.GetReviewTravelFeeling(viewModel);
             travelReview.ReviewTransport = this.GetReviewTransport(viewModel);
 

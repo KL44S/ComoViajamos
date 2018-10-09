@@ -8,9 +8,8 @@ namespace Model
     {
         public int ReviewId { get; set; }
         public String UserId { get; set; }
-        public DateTime Date { get; set; }
-        public DateTime TimeFrom { get; set; }
-        public DateTime TimeUntil { get; set; }
+        public DateTime DatetimeFrom { get; set; }
+        public DateTime DatetimeUntil { get; set; }
         public ReviewTravelFeeling TravelFeeling { get; set; }
         public ReviewTransport ReviewTransport { get; set; }
         public String Comments { get; set; }

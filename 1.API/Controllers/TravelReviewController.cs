@@ -23,7 +23,7 @@ namespace ComoViajamos.Controllers
 
         [EnableCors("EnableAll")]
         [HttpPost]
-        public ActionResult Post(TravelReviewViewModel travelReviewViewModel)
+        public ActionResult Post([FromBody] TravelReviewViewModel travelReviewViewModel)
         {
             if (ModelState.IsValid)
             {

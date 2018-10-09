@@ -10,13 +10,10 @@ namespace ComoViajamos.ViewModels
     public class TravelReviewViewModel
     {
         [Required(ErrorMessage = "Este campo es requerido")]
-        public DateTime Date { get; set; }
+        public String DatetimeFrom { get; set; }
 
         [Required(ErrorMessage = "Este campo es requerido")]
-        public DateTime TimeFrom { get; set; }
-
-        [Required(ErrorMessage = "Este campo es requerido")]
-        public DateTime TimeUntil { get; set; }
+        public String DatetimeUntil { get; set; }
 
         [Required(ErrorMessage = "Este campo es requerido")]
         public int TravelFeelingId { get; set; }
@@ -35,5 +32,8 @@ namespace ComoViajamos.ViewModels
 
         [Required(ErrorMessage = "Este campo es requerido")]
         public int TransportBranchOrientationId { get; set; }
+
+        [Required(ErrorMessage = "Este campo es requerido")]
+        public String CaptchaToken { get; set; }
     }
 }
