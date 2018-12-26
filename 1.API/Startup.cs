@@ -1,6 +1,7 @@
 ﻿using ComoViajamos.Filter;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,11 +19,6 @@ namespace ComoViajamos
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(config =>
-            {
-                config.Filters.Add(new NotCatchedExceptionFilterAttribute());
-            });
-
             services.AddCors(o => o.AddPolicy("EnableAll", builder =>
             {
                 builder.AllowAnyOrigin()
@@ -30,6 +26,12 @@ namespace ComoViajamos
                        .AllowAnyHeader()
                        .AllowCredentials();
             }));
+
+            services.AddMvc(config =>
+            {
+                config.Filters.Add(new NotCatchedExceptionFilterAttribute());
+                //config.Filters.Add(new RequireHttpsAttribute());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,7 +41,12 @@ namespace ComoViajamos
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                //app.UseHsts();
+            }
 
+            //app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

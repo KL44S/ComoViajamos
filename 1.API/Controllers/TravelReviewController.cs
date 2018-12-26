@@ -14,11 +14,13 @@ namespace ComoViajamos.Controllers
     {
         private TravelReviewMapper _mapper;
         private ITravelReviewService _travelReviewService;
+        private IAuthService _authService;
 
         public TravelReviewController()
         {
             this._mapper = new TravelReviewMapper();
             this._travelReviewService = new TravelReviewService();
+            this._authService = new RecaptchaService();
         }
 
         [EnableCors("EnableAll")]
@@ -27,18 +29,25 @@ namespace ComoViajamos.Controllers
         {
             if (ModelState.IsValid)
             {
-                TravelReview travelReview = this._mapper.MapViewModel(travelReviewViewModel);
-                String errorMessage = this._travelReviewService.GetValidationError(travelReview);
-
-                if (String.IsNullOrEmpty(errorMessage))
+                if (this._authService.IsUserAuthorizedAsync(travelReviewViewModel.CaptchaToken))
                 {
-                    this._travelReviewService.CreateTravelReview(travelReview);
+                    TravelReview travelReview = this._mapper.MapViewModel(travelReviewViewModel);
+                    String errorMessage = this._travelReviewService.GetValidationError(travelReview);
 
-                    return Ok();
+                    if (String.IsNullOrEmpty(errorMessage))
+                    {
+                        this._travelReviewService.CreateTravelReview(travelReview);
+
+                        return Ok();
+                    }
+                    else
+                    {
+                        return StatusCode(StatusCodes.Status422UnprocessableEntity, errorMessage);
+                    }
                 }
                 else
                 {
-                    return StatusCode(StatusCodes.Status422UnprocessableEntity, errorMessage);
+                    return Unauthorized();
                 }
             }
             else

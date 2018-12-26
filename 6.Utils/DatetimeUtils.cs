@@ -36,9 +36,9 @@ namespace Utils
                 throw new FormatException();
             }
 
-            int year = int.Parse(dateSplitted[0]);
+            int day = int.Parse(dateSplitted[0]);
             int month = int.Parse(dateSplitted[1]);
-            int day = int.Parse(dateSplitted[2]);
+            int year = int.Parse(dateSplitted[2]);
 
             int hour = int.Parse(timeSplitted[0]);
             int minutes = int.Parse(timeSplitted[1]);
